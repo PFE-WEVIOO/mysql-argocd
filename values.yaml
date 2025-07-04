@@ -1,0 +1,8 @@
+mysqlRootPassword: root
+mysqlUser: tomcat
+mysqlPassword: tomcat
+mysqlDatabase: jwdb
+nodeSelector:
+  kubernetes.io/hostname: k8s-worker1
+storage: 2Gi
+

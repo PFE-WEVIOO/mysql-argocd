@@ -5,4 +5,9 @@ mysqlDatabase: jwdb
 nodeSelector:
   kubernetes.io/hostname: k8s-worker1
 storage: 2Gi
+podLabels:
+  pod-name: mysql-pod
+
+podAnnotations:
+  pod-description: "MySQL pod for Joget"
 

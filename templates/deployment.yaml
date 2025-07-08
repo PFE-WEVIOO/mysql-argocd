@@ -11,6 +11,9 @@ spec:
     metadata:
       labels:
         app: mysql
+        pod-name: mysql-pod # 👉 Label personnalisé
+      annotations:
+        pod-description: "MySQL pod for Joget" # 👉 Annotation personnalisée
     spec:
       nodeSelector:
         {{- toYaml .Values.nodeSelector | nindent 8 }}
@@ -29,13 +32,8 @@ spec:
           volumeMounts:
             - name: mysql-storage
               mountPath: /var/lib/mysql
-            - name: init-sql
-              mountPath: /docker-entrypoint-initdb.d
       volumes:
         - name: mysql-storage
           persistentVolumeClaim:
             claimName: mysql-pvc
-        - name: init-sql
-          configMap:
-            name: mysql-init-sql
 

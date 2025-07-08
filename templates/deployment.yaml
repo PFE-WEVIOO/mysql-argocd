@@ -11,10 +11,15 @@ spec:
     metadata:
       labels:
         app: mysql
-        pod-name: mysql-pod # 👉 Label personnalisé
+        {{- with .Values.podLabels }}
+        {{ toYaml . | nindent 8 }}
+        {{- end }}
       annotations:
-        pod-description: "MySQL pod for Joget" # 👉 Annotation personnalisée
+        {{- with .Values.podAnnotations }}
+        {{ toYaml . | nindent 8 }}
+        {{- end }}
     spec:
+      serviceAccountName: {{ .Values.serviceAccountName }}
       nodeSelector:
         {{- toYaml .Values.nodeSelector | nindent 8 }}
       containers:

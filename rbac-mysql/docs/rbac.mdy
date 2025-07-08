@@ -1,0 +1,18 @@
+# 🔐 RBAC - Role-Based Access Control dans Kubernetes
+
+## 🎯 Objectif
+RBAC (Role-Based Access Control) permet de gérer **les autorisations des utilisateurs ou services** dans le cluster Kubernetes.
+
+---
+
+## 🧱 Composants RBAC
+
+### 1. 🧑‍💻 ServiceAccount
+Un `ServiceAccount` représente une **identité pour les pods** ou des processus internes à Kubernetes.
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: mysql-sa
+  namespace: joget

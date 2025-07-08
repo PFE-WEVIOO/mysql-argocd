@@ -11,3 +11,4 @@ podLabels:
 podAnnotations:
   pod-description: "MySQL pod for Joget"
 
+serviceAccountName: mysql-sa
